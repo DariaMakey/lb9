@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript</h2>
+
+<button onclick="countClicks()">Нажми на меня</button>
+<button onclick="resetCount()">Сбросить счетчик</button>
+
+<p id="clicks">Количество нажатий: 0</p>
+
+<p id="demo"></p>
+
+<input type="number" id="myNumber" value="">
+<button onclick="displayNumber()">Отобразить число</button>
+<p></p>
+<input type="number" id="myNumber-2" value="">
+<button onclick="displayNumberP()">Отобразить число</button>
+<p id="print"></p>
+<p>
+    <input type="number" id="myNumber-3" value="">
+<button onclick="Cwhile()">Отобразить число</button>
+<p id="print-2"></p>
+</p>
+
+<input type="button" onclick="show_confirm()" value="Показать окно подтверждения" /> 
+
+<input type="button" onclick="show_prompt()" value="Показать окно приглашения" /> 
+
+<script>
+let clickCount = 0;
+function countClicks() {
+    clickCount++;
+    document.getElementById("clicks").innerHTML = "Количество нажатий: " + clickCount;
+    if (clickCount % 2 == 0) {
+        document.getElementById("clicks").style.color = "red";
+    } else {
+        document.getElementById("clicks").style.color = "black";
+    }
+    if(clickCount==10){
+        return document.getElementById("clicks").style.color = "pink";
+
+    }
+}
+
+function resetCount() {
+    clickCount = 0;
+    document.getElementById("clicks").innerHTML = "Количество нажатий: " + clickCount;
+    document.getElementById("clicks").style.color = "black";
+}
+//оператор switch
+function displayNumber() {
+    let num = document.getElementById("myNumber").value;
+    let text;
+    switch (num) {
+        case '1':
+            text = "Вы ввели число 1";
+            break;
+        case '2':
+            text = "Вы ввели число 2";
+            break;
+        case '3':
+            text = "Вы ввели число 3";
+            break;
+        default:
+            text = "Вы ввели число " + num;
+    }
+    document.getElementById("demo").innerHTML = text;
+
+     
+    }
+    function displayNumberP() {
+        let num_2 = Number(document.getElementById("myNumber-2").value);    
+        let num_f  = num_2 + 5;
+        let output = "";
+        for (let i = num_2; i <= num_f; i++){
+            if(i==10){
+                output += "Значениe пропустили" + "<br>";
+                continue;
+            }
+            output += "Значения " + i + "<br>";
+
+        }
+        document.getElementById("print").innerHTML = output;
+    }
+//Цикл while
+    function Cwhile() {
+        let num_3 = Number(document.getElementById("myNumber-3").value);
+        let num_g  = num_3 + 5;
+        let output = "";
+        while(num_3<=num_g) {
+            
+            output += "Значения " + num_3 + "<br>";
+            num_3++;
+            
+        }       
+        document.getElementById("print-2").innerHTML = output;
+    }
+
+    //alter
+    function show_confirm() 
+{ 
+var r=confirm("Нажмите кнопку!"); 
+if (r==true) 
+{ 
+alert("Вы нажали OK!"); 
+} 
+else 
+{ 
+alert("Вы нажали Отмена!"); 
+} 
+} 
+// prompt
+function show_prompt() 
+{ 
+var name=prompt("Пожалуйста, введите ваше имя","Дарья Макей"); 
+if (name!=null && name!="") 
+{ 
+document.write("Привет " + name + "! Как дела сегодня?"); 
+} 
+} 
+
+</script>
+
+</body>
+</html>
